@@ -178,4 +178,5 @@ Secara keseluruhan, kode ini mendemonstrasikan cara membangun MCP server sederha
 
 
 Panduan: https://github.com/modelcontextprotocol/python-sdk
-Kode dari ChatGPT dan dokumentasi dibantu Github Copilot
+
+Kode dari ChatGPT dan dibantu github copilot jgua dan dokumentasi dibantu Github Copilot

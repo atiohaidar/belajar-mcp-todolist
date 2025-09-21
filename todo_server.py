@@ -16,7 +16,7 @@ todos: List[TodoItem] = []
 mcp = FastMCP(name="TodoServer")
 
 # Tool: tambah todo
-@mcp.tool()
+@mcp.tool(description="Add a new todo item with title and optional date")
 def add_todo(title: str, date: Optional[str] = None) -> TodoItem:
     new_id = len(todos) + 1
     todo = TodoItem(id=new_id, title=title, date=date)
@@ -24,12 +24,12 @@ def add_todo(title: str, date: Optional[str] = None) -> TodoItem:
     return todo
 
 # Tool: list semua todo
-@mcp.tool()
+@mcp.tool(description="List all todo items")
 def list_todos() -> List[TodoItem]:
     return todos
 
 # Tool: hapus todo berdasarkan id
-@mcp.tool()
+@mcp.tool(description="Delete a todo item by its ID")
 def delete_todo(todo_id: int) -> dict:
     global todos
     before = len(todos)
@@ -39,7 +39,7 @@ def delete_todo(todo_id: int) -> dict:
     return {"deleted": deleted}
 
 # Tool: update judul todo
-@mcp.tool()
+@mcp.tool(description="Update the title of a todo item by its ID")
 def update_todo(todo_id: int, new_title: str) -> dict:
     for t in todos:
         if t.id == todo_id:
@@ -48,7 +48,7 @@ def update_todo(todo_id: int, new_title: str) -> dict:
     return {"error": "Todo not found"}
 
 # Contoh tool: update bulk, ganti kata "aku" → "saya"
-@mcp.tool()
+@mcp.tool(description="Replace 'aku' with 'saya' in all todo titles")
 def replace_aku_to_saya() -> dict:
     count = 0
     for t in todos:
