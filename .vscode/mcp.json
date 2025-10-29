@@ -3,6 +3,10 @@
     "todo": {
       "command": "python",
       "args": ["todo_server.py"]
+    },
+    "todo_js":{
+      "command": "node",
+      "args": ["todo_server.js"]
     }
   }
 }
